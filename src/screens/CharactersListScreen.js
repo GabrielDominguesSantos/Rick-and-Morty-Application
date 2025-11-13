@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { View, FlatList, ActivityIndicator, StyleSheet, Text } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import axios from 'axios';
 import CharacterCard from '../components/CharacterCard';
 
 const API_URL = 'https://rickandmortyapi.com/api/character';
 
 const CharactersListScreen = ({ navigation }) => {
+    const insets = useSafeAreaInsets();
     const [characters, setCharacters] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -38,7 +40,8 @@ const CharactersListScreen = ({ navigation }) => {
     }
 
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, { paddingTop: insets.top }]}>
+        <Text style={styles.title}>Bem vindo ao Aplicativo do Rick e Morty</Text>
         <FlatList
             data={characters}
             keyExtractor={(item) => String(item.id)}
@@ -59,6 +62,9 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    title: {
+        fontFamily: "RickAndMorty",
     },
 });
 

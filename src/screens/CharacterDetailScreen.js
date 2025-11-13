@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { View, Text, Image, StyleSheet, ScrollView, ActivityIndicator } from 'react-native';
 import axios from 'axios';
 
 const CharacterDetailScreen = ({ route }) => {
+    const insets = useSafeAreaInsets();
     const { characterId } = route.params; 
     const [character, setCharacter] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
@@ -41,7 +43,7 @@ const CharacterDetailScreen = ({ route }) => {
     }
 
     return (
-        <ScrollView contentContainerStyle={styles.container}>
+        <ScrollView contentContainerStyle={[styles.container, { paddingTop: insets.top }]}>
         <Image source={{ uri: character.image }} style={styles.largeImage} />
         
         <Text style={styles.name}>{character.name}</Text>

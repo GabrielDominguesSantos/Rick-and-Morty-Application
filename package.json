@@ -8,6 +8,9 @@
     "ios": "expo start --ios",
     "web": "expo start --web"
   },
+  "devDependencies": {
+    "@react-native-community/cli": "latest"
+  },
   "dependencies": {
     "@react-navigation/native": "^7.1.19",
     "@react-navigation/stack": "^7.6.3",

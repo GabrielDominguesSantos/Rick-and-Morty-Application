@@ -8,12 +8,15 @@ const Stack = createStackNavigator();
 const AppNavigator = () => {
     return (
         <Stack.Navigator
+        screenOptions={{
+            headerShown: false,
+        }}
         initialRouteName="CharactersList"
         >
         <Stack.Screen 
             name="CharactersList" 
             component={CharactersListScreen} 
-            options={{ title: 'Character List' }} 
+            options={{ title: 'Character' }} 
         />
         <Stack.Screen 
             name="CharacterDetail" 
