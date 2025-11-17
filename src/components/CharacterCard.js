@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
     name: {
         fontSize: 16,
         fontWeight: 'bold',
+        color: '#eee',
     },
     statusContainer: {
         flexDirection: 'row',
@@ -64,6 +65,7 @@ const styles = StyleSheet.create({
     },
     statusText: {
         fontSize: 12,
+        color: '#eee',
     },
 });
 
